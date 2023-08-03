@@ -4,4 +4,7 @@ body{
     font-family: 'Space Mono', monospace;
     background-color: white;
     color: rgb(64, 162, 201);
+    display: flex;
+    justify-content: center;
 }
+
