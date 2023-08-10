@@ -3,14 +3,18 @@ const jsConfetti = new JSConfetti();
 const onReady = () => {
     let clickable = document.getElementsByClassName("clickable")[0];
     clickable.addEventListener("click", () => {
-        jsConfetti.addConfetti();
-        const main = document.getElementsByTagName("main")[0];
-        typewrite(document.getElementsByTagName("main")[0], "VALEU! meu mano tmj agradeço por ter clicado tlgd");
+        jsConfetti.addConfetti({
+            emojis: ['🔥', '✨', '☄️', '🌈', '🌟'],
+            emojiSize: 50
+        });
+        typewrite(document.getElementsByTagName("main")[0], "valeu meu mano tmj agradeço por ter clicado tlgd");
+        typewrite(document.getElementsByTagName("footer")[0], "Feito por Caio H P Lima: https://github.com/CaioHPerlin/");
     });
 }
 
 const typewrite = (element, str=element.textContent, spd = 50) => {
     if(!element.className.includes("done")){
+        element.className += " done";
         const backup =  element.innerHTML;
         element.textContent = "";
         element.innerHTML = "";
@@ -23,7 +27,6 @@ const typewrite = (element, str=element.textContent, spd = 50) => {
             if(i == str.length){ 
                 if(backup != "") { element.innerHTML = backup }
                 clearInterval(interval);
-                element.className += " done";
                 console.log(element.className)
                 onReady();
             }
