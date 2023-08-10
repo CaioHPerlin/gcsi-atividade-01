@@ -2,8 +2,8 @@
 
 body{
     font-family: 'Space Mono', monospace;
-    background-color: white;
-    color: rgb(64, 162, 201);
+    background-color: #122329;
+    color: #40a2c9;
     display: flex;
     justify-content: center;
 }

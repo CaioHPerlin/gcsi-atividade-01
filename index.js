@@ -1,12 +1,17 @@
-let text = "se pa... que n sei oq... sei la...";
-let index = 0;
-typewrite();
+let headerText = "se pa... que n sei oq... sei la...";
+typewrite(document.getElementById("foo-text"), headerText);
 
-function typewrite() {
-    let str = "";
-    if(index < text.length){
-        document.getElementById("foo-text").innerHTML += text[index];
+function typewrite(element, str) {
+    let index = 0;
+    addChar();
+
+    function addChar() {
+        element.innerHTML += str[index];
         index++;
-        setTimeout(typewrite, 50);
+        const timeout = setTimeout(addChar, 50);
+
+        if(index >= str.length){
+            clearTimeout(timeout);
+        }
     }
 }
